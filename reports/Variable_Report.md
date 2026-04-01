@@ -1,8 +1,8 @@
 |     Variable    | Unique Values |     Type    |                           Description                           |
 |:---------------:|:-------------:|:-----------:|:---------------------------------------------------------------:|
 |      Order      |               |  Numerical  | Observation number                                              |
-|       PID       |               |  Numerical  | Parcel identification number                                    |
-|   MS SubClass   |               |  Numerical  | Identifies the type of dwelling involved in the sale            |
+|       PID       |               | Categorical | Parcel identification number                                    |
+|   MS SubClass   |               | Categorical | Identifies the type of dwelling involved in the sale            |
 |    MS Zoning    |       7       | Categorical | Identifies the general zoning classification of the sale        |
 |   Lot Frontage  |               |  Numerical  | Linear feet of street connected to property                     |
 |     Lot Area    |               |  Numerical  | Lot size in square feet                                         |
