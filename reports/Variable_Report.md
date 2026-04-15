@@ -18,7 +18,7 @@
 |   Condition 2   |       8       | Categorical | Proximity to various conditions (if more than one is present)   |
 |    Bldg Type    |       5       | Categorical | Type of dwelling                                                |
 |   House Style   |       8       | Categorical | Style of dwelling                                               |
-|   Overall Qual  |               |  Numerical  | Rates the overall material and finish of the house              |
+|   Overall Qual  |               | Categorical  | Rates the overall material and finish of the house              |
 |   Overall Cond  |               |  Numerical  | Rates the overall condition of the house                        |
 |    Year Built   |               |  Numerical  | Original construction date                                      |
 |  Year Remod/Add |               |  Numerical  | Remodel date                                                    |
