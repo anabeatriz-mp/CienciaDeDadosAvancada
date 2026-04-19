@@ -157,7 +157,3 @@ The best model (Model 4) achieved a validation F1 of 0.931 and a test F1 of 0.88
 - **Small evaluation splits.** With approximately 439 rows each in validation and test, metric estimates carry meaningful variance. A single split can be lucky or unlucky with respect to the distribution of high-value properties, as evidenced by the OLS test gap. Stratified splitting by price quantile and k-fold cross-validation on the training set would produce more reliable performance estimates.
 
 - **Neighbourhood encoding fragility.** `Neighborhood Rank` and `Neighborhood_Simplified` are both derived from training-set price statistics, making them sensitive to how neighbourhoods are represented in each split. In a real deployment scenario with new data, unseen or borderline neighbourhoods would fall back to default values that may not reflect actual price positioning.
-
-- **Temporal validity.** The dataset covers sales from 2006 to 2010, a period that includes the 2008 financial crisis and its aftermath. Price dynamics, quality premiums, and neighbourhood rankings may have shifted substantially since then, limiting the direct applicability of these models to current market conditions.
-
-- **OLS inference assumptions.** While VIF was monitored throughout, residual diagnostics (normality of errors, homoskedasticity) were not formally tested at each model iteration. Violations of these assumptions would affect the validity of p-values and confidence intervals reported in the model summaries.

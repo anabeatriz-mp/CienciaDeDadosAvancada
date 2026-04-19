@@ -12,7 +12,7 @@
 ---
 
 > [!NOTE]
-> The Summary Table of Key Variables was built using the `summarize_dataframe` in [`notebooks\classes\aula1_student.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/classes/aula1_student.ipynb).
+> The Summary Table of Key Variables was built using the `summarize_dataframe` function in [`notebooks\classes\aula1_student.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/classes/aula1_student.ipynb).
 
 
 ## Key Findings from Initial Profiling:
