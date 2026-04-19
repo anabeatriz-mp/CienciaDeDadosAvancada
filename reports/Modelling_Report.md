@@ -1,6 +1,9 @@
 # Modelling Report
 ### Ames Housing Dataset
 
+> [!IMPORTANT]
+> The Jupyter Notebook this report relies on can be found in [`notebooks\AmesHousing\modeling.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/AmesHousing/modeling.ipynb).
+
 ---
 
 ## 1. Overview
@@ -22,18 +25,19 @@ Multicollinearity was monitored throughout using the **Variance Inflation Factor
 
 All models predict `Log_SalePrice`. RMSE values on the validation set are reported on the original dollar scale for interpretability.
 
-|   | Model | Features Added                                                         | R²        |
-|---|-------|------------------------------------------------------------------------|-----------|
-|   | 1     | Overall Score, House Age, TotalSF                                      | 0.8081    |
-|   | 2     | + log(TotalSF) replaces TotalSF, + Years Since Remodel, + Garage Score | 0.8338    |
-|   | 3     | + Neighborhood_Simplified, + Condition_Group                           | 0.8403    |
-|   | 4     | + Has Fireplace, + Total Bath                                          | 0.8563    |
-|   | 5     | + Mas Vnr Area, + Mas Vnr Type                                         | 0.8594    |
-|   | 6     | + MS SubClass, + MS Zoning (Mas Vnr Type retained)                     | 0.8623    |
-|   | **7** | **+ Sale Condition (MS Zoning dropped)**                               | **0.838** |
-|   | 8     | + Bedroom AbvGr                                                        | 0.8638    |
+| Model | Features Added                                                         | R²        |
+|-------|------------------------------------------------------------------------|-----------|
+| 1     | Overall Score, House Age, TotalSF                                      | 0.8081    |
+| 2     | + log(TotalSF) replaces TotalSF, + Years Since Remodel, + Garage Score | 0.8338    |
+| 3     | + Neighborhood_Simplified, + Condition_Group                           | 0.8403    |
+| 4     | + Has Fireplace, + Total Bath                                          | 0.8563    |
+| 5     | + Mas Vnr Area, + Mas Vnr Type                                         | 0.8594    |
+| 6     | + MS SubClass, + MS Zoning (Mas Vnr Type retained)                     | 0.8623    |
+| **7** | **+ Sale Condition (MS Zoning dropped)**                               | **0.838** |
+| 8     | + Bedroom AbvGr                                                        | 0.8638    |
 
-**Model 7 was selected as the final OLS model.**
+
+> **Model 7 was selected as the final OLS model.**
 
 ### 2.2 Model-by-Model Rationale
 
