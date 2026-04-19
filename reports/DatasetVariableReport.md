@@ -1,3 +1,33 @@
+# Dataset Variables Report
+---
+
+## Report of Ames Housing Analysis
+
+### Table of Contents 
+- [Dataset Variables Report](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/DatasetVariableReport.md)
+- [Initial Data Inspection](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/InitialDataInspection.md)
+- [Missing Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Missing_Values_Report.md)
+- [Univariate and Correlation Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Univariate_Correlation_Report.md)
+- [Preprocessing of the Dataset](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Preprocessing_Report.md)
+- [Modelling and Conclusions](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Modelling_Report.md)
+---
+
+> [!IMPORTANT]
+> The descriptions of each variable were obtained from the [Ames Housing Dataset Documentation]("https://jse.amstat.org/v19n3/decock/DataDocumentation.txt) by Dean De Cock,
+Truman State University.
+
+
+## Data Source
+
+The dataset used is the Ames Housing Dataset, which contains **2,930 observations** and **82 variables** describing residential property sales in Ames, Iowa, from 2006 to 2010.
+
+- Source: [Kaggle - Ames Housing Dataset](https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset)
+- Format: CSV
+- Key Features: Includes nominal, ordinal, discrete, and continuous variables ranging from soil type to sale price.
+
+---
+## Variable Description Table
+
 |     Variable    | Unique Values |     Type    |                           Description                           |
 |:---------------:|:-------------:|:-----------:|:---------------------------------------------------------------:|
 |      Order      |               |  Numerical  | Observation number                                              |

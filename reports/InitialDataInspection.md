@@ -1,3 +1,45 @@
+# Initial Data Inspection
+---
+## Report of Ames Housing Analysis
+
+### Table of Contents 
+- [Dataset Variables Report](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/DatasetVariableReport.md)
+- [Initial Data Inspection](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/InitialDataInspection.md)
+- [Missing Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Missing_Values_Report.md)
+- [Univariate and Correlation Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Univariate_Correlation_Report.md)
+- [Preprocessing of the Dataset](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Preprocessing_Report.md)
+- [Modelling and Conclusions](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Modelling_Report.md)
+---
+
+> [!NOTE]
+> The Summary Table of Key Variables was built using the `summarize_dataframe` in [`notebooks\classes\aula1_student.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/classes/aula1_student.ipynb).
+
+
+## Key Findings from Initial Profiling:
+
+- The following variables show significant missing data:
+    - `Alley` - 93.24%
+    - `Mas Vnr Type` - 60.58%
+    - `Fireplace Qu` - 48.53%
+    - `Pool QC` - 99.56%
+    - `Fence` - 80.48%
+    - `Misc Feature` - 96.38%
+- The dataset is diverse - it includes a mix of 43 categorical variables and 39 numerical variables.
+
+## Interpretation and Preliminary Insights
+
+Based on the initial profiling of the Ames Housing dataset, the following insights guide the transition from exploration to data preparation:
+
+- The missing values in this dataset are often "informative" rather than accidental. For variables like `Pool QC` and `Alley`, the high percentage of null values indicates the absence of that feature.
+- Unlike the variables mentioned above `Lot Frontage` has a genuine data quality challenge with a 16.72% missing rate. Since a property must have a physical lot frontage, it's likely that these nulls are true missing values.
+
+The proposed next steps are:
+- `NaN` values should be filled with a category like `"None"` to preserve information about the property.
+- For other variables like `Lot Frontage` we should apply an imputation method to maintain data integrity.
+
+
+## Summary Table of Key Variables
+
 | Variable        |   Num of values | % of missing values   | Unique Values   | Mean          | Python Type   |   Count of Float |   Count of int |   Count of str |
 |:----------------|----------------:|:----------------------|:----------------|:--------------|:--------------|-----------------:|---------------:|---------------:|
 | Order           |            2930 | 0.00%                 |                 | 1465.5        | int64         |                0 |           2930 |              0 |

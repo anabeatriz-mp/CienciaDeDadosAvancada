@@ -1,10 +1,21 @@
 # Missing Values Report
+---
+## Report of Ames Housing Analysis
+
+### Table of Contents 
+- [Dataset Variables Report](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/DatasetVariableReport.md)
+- [Initial Data Inspection](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/InitialDataInspection.md)
+- [Missing Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Missing_Values_Report.md)
+- [Univariate and Correlation Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Univariate_Correlation_Report.md)
+- [Preprocessing of the Dataset](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Preprocessing_Report.md)
+- [Modelling and Conclusions](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Modelling_Report.md)
+---
+
+## Overview
 
 In this document we can see the Missingness Classification of each of the features in our dataset and the explanation as to why.
 
-To see how I've reached these conclusions in more detail check the jupyter notebook in `notebooks\AmesHousing\missing_analysis.ipynb`.
-
-
+To see how I've reached these conclusions in more detail check the jupyter notebook in [`notebooks\AmesHousing\missing_analysis.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/AmesHousing/missing_analysis.ipynb).
 
 > [!NOTE]
 > On the [Documentation<sup>[1]</sup>](https://jse.amstat.org/v19n3/decock/DataDocumentation.txt) it is said that most features have missing values because the characteristic simply doesn't exist on the property, i.e most of the variables have **structural missing data**.
@@ -13,6 +24,8 @@ To see how I've reached these conclusions in more detail check the jupyter noteb
 >- Property doesn't have Fireplace
 >- Property doesn't have Garages
 >- Property doesn't have Basement
+
+---
 
 ## Missingness Table
 

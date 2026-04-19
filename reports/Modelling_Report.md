@@ -1,6 +1,15 @@
 # Modelling Report
-### Ames Housing Dataset
+---
+## Report of Ames Housing Analysis
 
+### Table of Contents 
+- [Dataset Variables Report](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/DatasetVariableReport.md)
+- [Initial Data Inspection](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/InitialDataInspection.md)
+- [Missing Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Missing_Values_Report.md)
+- [Univariate and Correlation Analysis](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Univariate_Correlation_Report.md)
+- [Preprocessing of the Dataset](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Preprocessing_Report.md)
+- [Modelling and Conclusions](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/reports/Modelling_Report.md)
+---
 > [!IMPORTANT]
 > The Jupyter Notebook this report relies on can be found in [`notebooks\AmesHousing\modeling.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/AmesHousing/modeling.ipynb).
 
@@ -120,3 +129,35 @@ The test results are 2–3 points lower than validation across all metrics. The 
 With approximately 439 rows per evaluation set, validation and test results are susceptible to distributional differences between splits. If the validation set happened to contain high-price houses that were more cleanly separable, Model 4 would appear stronger on validation than it truly generalises — and the test set reveals the more honest performance.
 
 The specific feature that introduces fragility is Neighborhood Rank, which is what distinguishes Model 4 from Model 3. This rank is derived from training-set median prices, meaning neighbourhoods close to a tier boundary may not rank consistently with how houses actually sold in the test set. This introduces noise at the classification boundary and is reflected most clearly in the ROC-AUC drop, since ROC-AUC measures ranking quality across all thresholds rather than just at the 0.5 cutoff.
+
+---
+
+## 4. Conclusions
+
+### 4.1 Overall Findings
+
+Both models confirmed that residential sale prices are driven by a consistent and interpretable set of factors. Across OLS and Logit alike, the same core predictors dominated: **overall quality, total living area, house age, bathroom count, and neighbourhood tier**. This consistency across two fundamentally different modelling tasks strengthens confidence in those features as genuine drivers of value rather than statistical artefacts.
+
+The log transformation of `SalePrice` was essential for OLS — without it, the skewed target distribution would have violated the normality and homoskedasticity assumptions underpinning inference. The same transformation applied to `TotalSF` in Model 2 further stabilised coefficients and improved model fit, demonstrating that scale matters as much as feature selection in linear modelling.
+
+### 4.2 OLS Linear Regression
+
+The final OLS model (Model 7) achieved an Adjusted R² of 0.864 on the training set and a validation RMSE of approximately $27,000, which is acceptable given the price range of the dataset. The iterative feature selection process was effective — each addition was justified by a meaningful gain in Adjusted R², and features that failed to justify their complexity (Model 5's `Mas Vnr Area`, Model 8's `Bedroom AbvGr`) were either dropped or rejected based on statistical insignificance or declining Adjusted R².
+
+The test RMSE of ~$36,000 was higher than expected given validation performance, attributed primarily to the small split sizes and the non-linear amplification of errors on expensive properties after the `exp()` back-transformation. This is a limitation of the evaluation setup rather than a failure of the model itself.
+
+### 4.3 Logistic Regression
+
+The Logit models performed remarkably well from the very first iteration, with Model 1 already achieving a ROC-AUC of 0.989 on validation. This suggests that the binary classification boundary between high-price and non-high-price properties is relatively well-defined in the feature space — the three baseline features alone are sufficient to separate the top price tercile with high confidence.
+
+The best model (Model 4) achieved a validation F1 of 0.931 and a test F1 of 0.887. The modest performance drop on the test set is largely attributable to the fragility of `Neighborhood Rank` across different sample distributions, rather than a structural overfitting problem. Model 3 — without neighbourhood — generalises more conservatively and may be the more robust choice in production.
+
+### 4.4 Limitations
+
+- **Small evaluation splits.** With approximately 439 rows each in validation and test, metric estimates carry meaningful variance. A single split can be lucky or unlucky with respect to the distribution of high-value properties, as evidenced by the OLS test gap. Stratified splitting by price quantile and k-fold cross-validation on the training set would produce more reliable performance estimates.
+
+- **Neighbourhood encoding fragility.** `Neighborhood Rank` and `Neighborhood_Simplified` are both derived from training-set price statistics, making them sensitive to how neighbourhoods are represented in each split. In a real deployment scenario with new data, unseen or borderline neighbourhoods would fall back to default values that may not reflect actual price positioning.
+
+- **Temporal validity.** The dataset covers sales from 2006 to 2010, a period that includes the 2008 financial crisis and its aftermath. Price dynamics, quality premiums, and neighbourhood rankings may have shifted substantially since then, limiting the direct applicability of these models to current market conditions.
+
+- **OLS inference assumptions.** While VIF was monitored throughout, residual diagnostics (normality of errors, homoskedasticity) were not formally tested at each model iteration. Violations of these assumptions would affect the validity of p-values and confidence intervals reported in the model summaries.
