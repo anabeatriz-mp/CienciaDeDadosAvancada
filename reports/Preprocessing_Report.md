@@ -1,8 +1,12 @@
 # Preprocessing Report
 
+> [!IMPORTANT]
+> The Jupyter Notebook this report relies on can be found in [`notebooks\AmesHousing\preprocessing.ipynb`](https://github.com/anabeatriz-mp/CienciaDeDadosAvancada/blob/master/notebooks/AmesHousing/preprocessing.ipynb).
+
+
 ## 1. Dataset & Train/Validation/Test Split
 
-The raw dataset was loaded from `AmesHousing.csv`. To ensure all preprocessing parameters (imputation values, encoding maps, target bins) were derived exclusively from training data and applied to the remaining splits, the dataset was divided before any transformation was performed.
+The raw dataset was loaded from `data\raw\AmesHousing.csv`. To ensure all preprocessing parameters (imputation values, encoding maps, target bins) were derived exclusively from training data and applied to the remaining splits, the dataset was divided before any transformation was performed.
 
 The split strategy used was a two-step random split with `random_state=42` for reproducibility:
 
